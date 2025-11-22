@@ -40,18 +40,18 @@ $(document).ready(async function () {
     
     closeSideNav();
     
-    // Load initial categories
+    // Load initial meals (home)
     try {
-        console.log("Starting to load initial categories...");
+        console.log("Starting to load initial meals...");
         $(".loading-screen").css("display", "flex");
-        await getCategories();
-        console.log("Categories loaded successfully");
+        await searchByName("", false);
+        console.log("Meals loaded successfully");
         $(".loading-screen").fadeOut(300, function() {
             $(".loading-screen").css("display", "none");
             $("body").css("overflow", "visible");
         });
     } catch (error) {
-        console.error("Error loading categories:", error);
+        console.error("Error loading meals:", error);
         $(".loading-screen").fadeOut(300, function() {
             $(".loading-screen").css("display", "none");
             $("body").css("overflow", "visible");
